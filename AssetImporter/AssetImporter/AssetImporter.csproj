@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\MonoDevelop.Addins.0.4.4\build\MonoDevelop.Addins.props" Condition="Exists('..\packages\MonoDevelop.Addins.0.4.4\build\MonoDevelop.Addins.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{15F431BF-658A-4A7E-9AB6-5F30B4107BD9}</ProjectGuid>
+    <ProjectTypeGuids>{86F6BF2A-E449-4B3E-813B-9ACC37E5545F};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>AssetImporter</RootNamespace>
+    <AssemblyName>AssetImporter</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\AddinInfo.cs" />
+    <Compile Include="gtk-gui\generated.cs" />
+    <Compile Include="Asset Parsers\iOS\ImageSet.cs" />
+    <Compile Include="Asset Parsers\iOS\IOSProjectAssetParser.cs" />
+    <Compile Include="AssetService.cs" />
+    <Compile Include="Addin Items\Context Menu\ImportAssetHandler.cs" />
+    <Compile Include="Addin Items\Pad\AssetsPad.cs" />
+    <Compile Include="Asset Abstraction Items\Abstractions.cs" />
+    <Compile Include="Asset Abstraction Items\AssetProject.cs" />
+    <Compile Include="Asset Abstraction Items\IOSAssetProject.cs" />
+    <Compile Include="Asset Abstraction Items\AndroidAssetProject.cs" />
+    <Compile Include="Asset Parsers\Android\AndroidProjectAssetParser.cs" />
+    <Compile Include="Addin Items\Pad\AssetListWidget.cs" />
+    <Compile Include="gtk-gui\AssetImporter.AddinItems.Pad.AssetListWidget.cs" />
+    <Compile Include="Helpers.cs" />
+    <Compile Include="Addin Items\ExpandedAssetDialog.cs" />
+    <Compile Include="gtk-gui\AssetImporter.AddinItems.ExpandedAssetDialog.cs" />
+    <Compile Include="Addin Items\AssetProjectExpandedWidget.cs" />
+    <Compile Include="gtk-gui\AssetImporter.AddinItems.AssetProjectExpandedWidget.cs" />
+    <Compile Include="Addin Items\AssetItemWidget.cs" />
+    <Compile Include="gtk-gui\AssetImporter.AddinItems.AssetItemWidget.cs" />
+    <Compile Include="Addin Items\ImageFileFilter.cs" />
+    <Compile Include="ImageService.cs" />
+    <Compile Include="Asset Abstraction Items\UnpersistedProjectAsset.cs" />
+    <Compile Include="Addin Items\Pad\AssetsPadWidget.cs" />
+    <Compile Include="gtk-gui\AssetImporter.AddinItems.Pad.AssetsPadWidget.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Manifest.addin.xml" />
+    <EmbeddedResource Include="gtk-gui\gui.stetic">
+      <LogicalName>gui.stetic</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Asset Parsers\iOS\default_contents.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="gtk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <Reference Include="gdk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <Reference Include="Mono.Posix" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="libstetic">
+      <HintPath>..\..\..\..\..\..\..\Applications\Visual Studio.app\Contents\Resources\lib\monodevelop\AddIns\MonoDevelop.GtkCore\libstetic.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Asset Parsers\" />
+    <Folder Include="Asset Parsers\iOS\" />
+    <Folder Include="Asset Parsers\Android\" />
+    <Folder Include="Addin Items\" />
+    <Folder Include="Addin Items\Context Menu\" />
+    <Folder Include="Addin Items\Pad\" />
+    <Folder Include="Asset Abstraction Items\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\MonoDevelop.Addins.0.4.4\build\MonoDevelop.Addins.targets" Condition="Exists('..\packages\MonoDevelop.Addins.0.4.4\build\MonoDevelop.Addins.targets')" />
+</Project>

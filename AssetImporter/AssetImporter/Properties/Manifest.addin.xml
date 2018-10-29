@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionModel>
+	<!--<Extension
+		path="/MonoDevelop/Ide/Commands/Edit">
+		<Command
+			id="AssetImporter.ImportAsset"
+			_label="Import Asset..."
+			_description="Import assets into your projects..."
+			defaultHandler="AssetImporter.ImportAssetHandler" />
+	</Extension>
+	<Extension
+		path="/MonoDevelop/Ide/ContextMenu/ProjectPad">
+		<Condition
+			id="ItemType"
+			value="Solution">
+			<CommandItem
+				id="AssetImporter.ImportAsset"
+				insertafter="MonoDevelop.Ide.Commands.ProjectCommands.Clean"
+				insertbefore="MonoDevelop.Ide.Commands.ProjectCommands.Unload" />
+		</Condition>
+	</Extension>-->
+	<Extension
+		path="/MonoDevelop/Ide/Pads">
+		<Pad
+			id="AssetImporter.AddinItems.Pad.AssetsPad"
+			_label="Assets"
+			class="AssetImporter.AddinItems.Pad.AssetsPad"
+			defaultPlacement="right" />
+	</Extension>
+</ExtensionModel>
